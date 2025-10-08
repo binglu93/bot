@@ -1,4 +1,4 @@
-// commands/topup.js (Final Fix All)
+// commands/topup.js
 const path = require('path');
 const Database = require('better-sqlite3');
 const fetch = global.fetch || require('node-fetch');
@@ -50,7 +50,7 @@ const fullname = u => [u.first_name, u.last_name].filter(Boolean).join(' ') || u
 const idr = n => Number(n||0).toLocaleString('id-ID');
 const send = (bot, chatId, text, opt={}) => bot.sendMessage(chatId, text, { parse_mode: 'Markdown', ...opt });
 
-const API_URL = "https://ariepulsa.my.id/api/qrisorkut";
+const API_URL = process.env.URL_API_KEY || "Url_Apimu";
 const API_KEY = process.env.QRIS_API_KEY || "apikeymu";
 
 async function apiCall(params) {
@@ -72,7 +72,7 @@ async function startFlow(bot, msg) {
   global.__qris_sessions[key] = { step: 1 };
 
   send(bot, msg.chat.id,
-    `💰 *TOPUP QRIS*\nMasukkan nominal (contoh: \`500\`).\nMinimal: *Rp500*\n\nKetik */batal* untuk membatalkan.`);
+    `💰 *TOPUP QRIS*\nMasukkan nominal (contoh: \`5000\`).\nMinimal: *Rp5000*\n\nKetik */batal* untuk membatalkan.`);
 }
 
 async function handleContinue(bot, msg) {
@@ -89,8 +89,8 @@ async function handleContinue(bot, msg) {
 
   if (S.step === 1) {
     const nominal = parseInt(text.replace(/[^\d]/g,''), 10);
-    if (isNaN(nominal) || nominal < 500) {
-      return send(bot, msg.chat.id, "⚠️ Nominal tidak valid. Minimal Rp500.");
+    if (isNaN(nominal) || nominal < 5000) {
+      return send(bot, msg.chat.id, "⚠️ Nominal tidak valid. Minimal Rp5000.");
     }
 
     try {
