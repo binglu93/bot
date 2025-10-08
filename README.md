@@ -1,4 +1,4 @@
-# Ampun Orang Banua Jua Sanak as
+# Ampun Orang Banua Jua Sanak ae
 -gasan saorang haja, Mun handak ulah saorang
 
 # Admin
