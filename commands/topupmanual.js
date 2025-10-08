@@ -58,7 +58,7 @@ async function startFlow(bot, msg) {
 
   send(bot, msg.chat.id,
 `💰 *TOPUP MANUAL*
-Silakan kirim nominal yang ingin kamu topup (contoh: \`10000\`).
+Silakan kirim nominal yang ingin kamu topup (contoh: \`1000\`).
 
 Ketik */batal* untuk membatalkan.`);
 }
@@ -78,8 +78,8 @@ async function handleContinue(bot, msg) {
   // Step 1: Nominal
   if (S.step === 1) {
     const nominal = parseInt(text.replace(/[^\d]/g,''), 10);
-    if (isNaN(nominal) || nominal < 5000)
-      return send(bot, msg.chat.id, "⚠️ Nominal tidak valid. Minimal Rp5000.");
+    if (isNaN(nominal) || nominal < 1000)
+      return send(bot, msg.chat.id, "⚠️ Nominal tidak valid. Minimal Rp1000.");
 
     S.nominal = nominal;
     S.step = 2;
@@ -89,9 +89,9 @@ async function handleContinue(bot, msg) {
     const currentBalance = idr(user.balance);
 
     // Data pembayaran
-    const QRIS_IMAGE_URL = process.env.QRIS_IMAGE_URL || 'http://sc1.julak.web.id/QRIS.png';
-    const WA_NUMBER = process.env.ADMIN_WA_NUMBER || '6285166600428';
-    const TELEGRAM_ADMIN_USERNAME = process.env.TELEGRAM_ADMIN_USERNAME || 'rajaganjil93';
+    const QRIS_IMAGE_URL = process.env.QRIS_IMAGE_URL || 'url_qrismu';
+    const WA_NUMBER = process.env.ADMIN_WA_NUMBER || '0123456789';
+    const TELEGRAM_ADMIN_USERNAME = process.env.TELEGRAM_ADMIN_USERNAME || 'username_telemu';
 
     // Caption preview pembayaran
     const caption = 
