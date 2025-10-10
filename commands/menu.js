@@ -160,8 +160,8 @@ function buildSubKeyboard(type) {
       { text: '♻️ Renew Trojan', callback_data: 'menu:run:renewtrojan' }
     ],
     saldo: [
-      { text: '💰 Topup Otomatis', callback_data: 'menu:run:topup' },
-      { text: '💰 Topup Manual', callback_data: 'menu:run:topupmanual' },
+      { text: '💰 Topup Otomatis Min 5000', callback_data: 'menu:run:topup' },
+      { text: '💰 Topup Manual Min 1000', callback_data: 'menu:run:topupmanual' },
       { text: '💳 Cek Saldo', callback_data: 'menu:run:ceksaldo' }
     ],
     admin: [
